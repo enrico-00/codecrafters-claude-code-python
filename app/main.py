@@ -52,10 +52,12 @@ def main():
     if not chat.choices[0].message.tool_calls:
         print(chat.choices[0].message.content)
     else:
+        print("hi")
         tool_calls = chat.choices[0].message.tool_calls
         arguments = json.load(tool_calls[0].function.arguments)
 
         file = open(arguments.file_path)
+        print(arguments.file_path)
         print(file.read())
 
 
