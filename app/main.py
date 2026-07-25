@@ -53,12 +53,9 @@ def main():
         print(chat.choices[0].message.content)
     else:
         tool_calls = chat.choices[0].message.tool_calls
-        print(tool_calls[0].function.arguments)
         arguments = json.loads(tool_calls[0].function.arguments)
-        print(print)
 
-        file = open(arguments.file_path)
-        print(arguments.file_path)
+        file = open(arguments["file_path"])
         print(file.read())
 
 
