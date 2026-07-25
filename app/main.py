@@ -54,8 +54,8 @@ def main():
     else:
         print("hi")
         tool_calls = chat.choices[0].message.tool_calls
+        print(tool_calls[0].function.arguments)
         arguments = json.load(tool_calls[0].function.arguments)
-        print(arguments)
 
         file = open(arguments.file_path)
         print(arguments.file_path)
