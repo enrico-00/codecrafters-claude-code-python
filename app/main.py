@@ -33,16 +33,37 @@ def main():
                         "description": "Read and return the contents of a file",
                         "parameters": {
                             "type": "object",
+                            "required": ["file_path"],
                             "properties": {
                                 "file_path": {
                                     "type": "string",
                                     "description": "The path to the file to read",
                                 }
                             },
-                            "required": ["file_path"],
                         },
                     },
-                }
+                },
+                {
+                    "type": "function",
+                    "function": {
+                        "name": "Write",
+                        "description": "Write content to a file",
+                        "parameters": {
+                            "type": "object",
+                            "required": ["file_path", "content"],
+                            "properties": {
+                                "file_path": {
+                                    "type": "string",
+                                    "description": "The path of the file to write to",
+                                },
+                                "content": {
+                                    "type": "string",
+                                    "description": "The content to write to the file",
+                                },
+                            },
+                        },
+                    },
+                },
             ],
         )
 
@@ -59,19 +80,35 @@ def main():
         else:
             tool_calls = chat.choices[0].message.tool_calls
             for tool_call in tool_calls:
-                arguments = json.loads(tool_call.function.arguments)
+                if tool_call.function.name == "read":
+                    arguments = json.loads(tool_call.function.arguments)
 
-                file = open(arguments["file_path"])
-                content = file.read()
-                print(content, file=sys.stderr)
+                    file = open(arguments["file_path"])
+                    content = file.read()
+                    print(content, file=sys.stderr)
 
-                messages.append(
-                    {
-                        "role": "tool",
-                        "tool_call_id": tool_call.id,
-                        "content": content,
-                    }
-                )
+                    messages.append(
+                        {
+                            "role": "tool",
+                            "tool_call_id": tool_call.id,
+                            "content": content,
+                        }
+                    )
+
+                elif tool_call.function.name == "write":
+                    arguments = json.loads(tool_call.function.arguments)
+
+                    content = arguments["content"]
+                    with open(arguments["file_path"], "w") as file:
+                        file.write(content)
+
+                    messages.append(
+                        {
+                            "role": "tool",
+                            "tool_call_id": tool_call.id,
+                            "content": content,
+                        }
+                    )
 
 
 if __name__ == "__main__":
