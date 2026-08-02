@@ -82,7 +82,7 @@ def main():
             for tool_call in tool_calls:
                 print("Hoooodyyyyyyy", file=sys.stderr)
                 print(tool_call, file=sys.stderr)
-                if tool_call.function.name == "read":
+                if tool_call.function.name == "Read":
                     arguments = json.loads(tool_call.function.arguments)
 
                     file = open(arguments["file_path"])
@@ -97,7 +97,7 @@ def main():
                         }
                     )
 
-                elif tool_call.function.name == "write":
+                elif tool_call.function.name == "Write":
                     arguments = json.loads(tool_call.function.arguments)
 
                     content = arguments["content"]
