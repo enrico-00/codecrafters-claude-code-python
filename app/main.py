@@ -80,7 +80,7 @@ def main():
         else:
             tool_calls = chat.choices[0].message.tool_calls
             for tool_call in tool_calls:
-                printf(tool_call.function.name)
+                print(tool_call.function.name, file=sys.stderr)
                 if tool_call.function.name == "read":
                     arguments = json.loads(tool_call.function.arguments)
 
