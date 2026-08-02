@@ -67,8 +67,6 @@ def main():
             ],
         )
 
-        print("Hoooodyyyyyyy", file=sys.stderr)
-
         if not chat.choices or len(chat.choices) == 0:
             raise RuntimeError("no choices in response")
 
@@ -81,6 +79,7 @@ def main():
 
         else:
             tool_calls = chat.choices[0].message.tool_calls
+            print("Hoooodyyyyyyy", file=sys.stderr)
             for tool_call in tool_calls:
                 print(tool_call.function.name, file=sys.stderr)
                 if tool_call.function.name == "read":
