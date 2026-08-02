@@ -81,7 +81,7 @@ def main():
             tool_calls = chat.choices[0].message.tool_calls
             for tool_call in tool_calls:
                 print("Hoooodyyyyyyy", file=sys.stderr)
-                print(tool_call.function.name, file=sys.stderr)
+                print(tool_call, file=sys.stderr)
                 if tool_call.function.name == "read":
                     arguments = json.loads(tool_call.function.arguments)
 
