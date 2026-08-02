@@ -67,6 +67,8 @@ def main():
             ],
         )
 
+        print("Hoooodyyyyyyy", file=sys.stderr)
+
         if not chat.choices or len(chat.choices) == 0:
             raise RuntimeError("no choices in response")
 
