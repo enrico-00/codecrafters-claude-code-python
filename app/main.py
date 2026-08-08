@@ -2,6 +2,7 @@ import argparse
 import os
 import sys
 import json
+import subprocess
 
 from openai import OpenAI
 
@@ -64,6 +65,23 @@ def main():
                         },
                     },
                 },
+                {
+                    "type": "function",
+                    "function": {
+                        "name": "Bash",
+                        "description": "Execute a shell command",
+                        "parameters": {
+                            "type": "object",
+                            "required": ["command"],
+                            "properties": {
+                                "command": {
+                                    "type": "string",
+                                    "description": "The command to execute",
+                                }
+                            },
+                        },
+                    },
+                },
             ],
         )
 
@@ -80,8 +98,6 @@ def main():
         else:
             tool_calls = chat.choices[0].message.tool_calls
             for tool_call in tool_calls:
-                print("Hoooodyyyyyyy", file=sys.stderr)
-                print(tool_call, file=sys.stderr)
                 if tool_call.function.name == "Read":
                     arguments = json.loads(tool_call.function.arguments)
 
@@ -109,6 +125,22 @@ def main():
                             "role": "tool",
                             "tool_call_id": tool_call.id,
                             "content": content,
+                        }
+                    )
+
+                elif tool_call.function.name == "Bash":
+                    arguments = json.loads(tool_call.function.arguments)
+
+                    command = arguments["command"]
+                    output = subprocess.run(
+                        command, capture_output=True, text=True, check=True
+                    )
+
+                    messages.append(
+                        {
+                            "role": "tool",
+                            "tool_call_id": tool_call.id,
+                            "output": output,
                         }
                     )
 
