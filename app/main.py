@@ -137,7 +137,11 @@ def main():
 
                     try:
                         output = subprocess.run(
-                            command, capture_output=True, text=True, check=True
+                            command,
+                            capture_output=True,
+                            text=True,
+                            check=True,
+                            shell=True,
                         )
                         print(output, file=sys.stderr)
                     except subprocess.CalledProcessError as e:
