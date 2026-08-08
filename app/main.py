@@ -135,6 +135,7 @@ def main():
                     output = subprocess.run(
                         command, capture_output=True, text=True, check=True
                     )
+                    print(output, file=sys.stderr)
 
                     messages.append(
                         {
