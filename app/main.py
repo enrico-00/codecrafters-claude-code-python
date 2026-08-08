@@ -134,10 +134,15 @@ def main():
                     command = arguments["command"]
                     print("Hiiiiiiii", file=sys.stderr)
                     print(command, file=sys.stderr)
-                    output = subprocess.run(
-                        command, capture_output=True, text=True, check=True
-                    )
-                    print(output, file=sys.stderr)
+
+                    try:
+                        output = subprocess.run(
+                            command, capture_output=True, text=True, check=True
+                        )
+                        print(output, file=sys.stderr)
+                    except subprocess.CalledProcessError as e:
+                        print(e.stderr.strip(), file=sys.stderr)
+                        output = e.stderr.strip()
 
                     messages.append(
                         {
