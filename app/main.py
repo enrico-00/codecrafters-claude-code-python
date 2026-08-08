@@ -141,6 +141,7 @@ def main():
                         )
                         print(output, file=sys.stderr)
                     except subprocess.CalledProcessError as e:
+                        print("YOOOOOOOOOOOOO", file=sys.stderr)
                         print(e.stderr.strip(), file=sys.stderr)
                         output = e.stderr.strip()
 
