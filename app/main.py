@@ -133,7 +133,7 @@ def main():
 
                     command = arguments["command"]
                     print("Hiiiiiiii", file=sys.stderr)
-                    print(command, file=sys.stderr)
+                    print("hello" + command, file=sys.stderr)
 
                     try:
                         output = subprocess.run(
@@ -143,7 +143,7 @@ def main():
                             check=True,
                             shell=True,
                         )
-                        print(output, file=sys.stderr)
+                        print("hiii" + output, file=sys.stderr)
                     except subprocess.CalledProcessError as e:
                         print("YOOOOOOOOOOOOO", file=sys.stderr)
                         print(e.stderr.strip(), file=sys.stderr)
