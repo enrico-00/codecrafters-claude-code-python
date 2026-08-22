@@ -143,7 +143,8 @@ def main():
                             check=True,
                             shell=True,
                         )
-                        print("hiii" + output, file=sys.stderr)
+                        print("jaga", file=sys.stderr)
+                        print(output, file=sys.stderr)
                     except subprocess.CalledProcessError as e:
                         print("YOOOOOOOOOOOOO", file=sys.stderr)
                         print(e.stderr.strip(), file=sys.stderr)
