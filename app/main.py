@@ -144,7 +144,7 @@ def main():
                             shell=True,
                         )
                         print("jaga", file=sys.stderr)
-                        print(output, file=sys.stderr)
+                        print(output.stdout, file=sys.stderr)
                     except subprocess.CalledProcessError as e:
                         print("YOOOOOOOOOOOOO", file=sys.stderr)
                         print(e.stderr.strip(), file=sys.stderr)
@@ -155,7 +155,7 @@ def main():
                         {
                             "role": "tool",
                             "tool_call_id": tool_call.id,
-                            "output": output,
+                            "output": output.stdout,
                         }
                     )
 
