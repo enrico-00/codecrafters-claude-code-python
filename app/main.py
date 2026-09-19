@@ -135,34 +135,37 @@ def main():
                     print("Hiiiiiiii", file=sys.stderr)
                     print("hello" + command, file=sys.stderr)
 
-                    try:
-                        output = subprocess.run(
-                            command,
-                            capture_output=True,
-                            text=True,
-                            check=True,
-                            shell=True,
-                        )
-                        print("jaga", file=sys.stderr)
-                        print(output, file=sys.stderr)
-                        print("jaga1", file=sys.stderr)
-                        print(output.stdout, file=sys.stderr)
-                        print("jaga2", file=sys.stderr)
-                        print(output.stderr, file=sys.stderr)
-                    except subprocess.CalledProcessError as e:
-                        print("YOOOOOOOOOOOOO", file=sys.stderr)
-                        print(e.stderr.strip(), file=sys.stderr)
-                        output = e.stderr.strip()
+                    output = subprocess.run(
+                        command,
+                        capture_output=True,
+                        text=True,
+                        check=True,
+                        shell=True,
+                    )
 
-                    print("HUIiiiiiiii", file=sys.stderr)
-                    print(output.stdout, file=sys.stderr)
-                    print(type(output.stdout), file=sys.stderr)
-                    print(type(output), file=sys.stderr)
+                    if output:
+                        content = output.stdout
+                    else:
+                        content = stdout.stderr
+
+                    # try:
+                    #     output = subprocess.run(
+                    #         command,
+                    #         capture_output=True,
+                    #         text=True,
+                    #         check=True,
+                    #         shell=True,
+                    #     )
+
+                    #     content = output.stdout
+                    # except subprocess.CalledProcessError as e:
+                    #     output = e.stderr.strip()
+
                     messages.append(
                         {
                             "role": "tool",
                             "tool_call_id": tool_call.id,
-                            "content": output.stdout,
+                            "content": content,
                         }
                     )
 
