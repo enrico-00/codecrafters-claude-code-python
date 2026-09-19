@@ -132,8 +132,6 @@ def main():
                     arguments = json.loads(tool_call.function.arguments)
 
                     command = arguments["command"]
-                    print("Hiiiiiiii", file=sys.stderr)
-                    print("hello" + command, file=sys.stderr)
 
                     output = subprocess.run(
                         command,
