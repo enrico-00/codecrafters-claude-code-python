@@ -162,7 +162,7 @@ def main():
                         {
                             "role": "tool",
                             "tool_call_id": tool_call.id,
-                            "output": output.stdout,
+                            "content": output.stdout,
                         }
                     )
 
