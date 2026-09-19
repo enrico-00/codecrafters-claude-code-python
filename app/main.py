@@ -157,11 +157,12 @@ def main():
                     print("HUIiiiiiiii", file=sys.stderr)
                     print(output.stdout, file=sys.stderr)
                     print(type(output.stdout), file=sys.stderr)
+                    print(type(output), file=sys.stderr)
                     messages.append(
                         {
                             "role": "tool",
                             "tool_call_id": tool_call.id,
-                            "output": str(output.stdout),
+                            "output": output.stdout,
                         }
                     )
 
