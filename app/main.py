@@ -144,7 +144,11 @@ def main():
                             shell=True,
                         )
                         print("jaga", file=sys.stderr)
+                        print(output, file=sys.stderr)
+                        print("jaga1", file=sys.stderr)
                         print(output.stdout, file=sys.stderr)
+                        print("jaga2", file=sys.stderr)
+                        print(output.stderr, file=sys.stderr)
                     except subprocess.CalledProcessError as e:
                         print("YOOOOOOOOOOOOO", file=sys.stderr)
                         print(e.stderr.strip(), file=sys.stderr)
