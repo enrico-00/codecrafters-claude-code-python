@@ -155,6 +155,8 @@ def main():
                         output = e.stderr.strip()
 
                     print("HUIiiiiiiii", file=sys.stderr)
+                    print(output.stdout, file=sys.stderr)
+                    print(type(output.stdout), file=sys.stderr)
                     messages.append(
                         {
                             "role": "tool",
