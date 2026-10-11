@@ -3,7 +3,8 @@ import os
 import sys
 import json
 import subprocess
-import markdown
+
+# import markdown
 import yaml
 import frontmatter
 
