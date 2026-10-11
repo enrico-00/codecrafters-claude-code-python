@@ -21,6 +21,7 @@ def read_skill(path: str):
 
     with open(path, "r") as file:
         for line in file:
+            print(line, file=sys.stderr)
             if line.startswith("") or line.startswith("---"):
                 continue
             elif line.startswith("name:"):
@@ -42,7 +43,7 @@ def main():
     skills_description = []
 
     for skill in skills_name:
-        print("HIII")
+        print("HIII", file=sys.stderr)
         # f = open(os.path.join(SKILLS_PATH, skill, "SKILL.md"), "r")
         # print(f.read(), file=sys.stderr)
         print(read_skill(os.path.join(SKILLS_PATH, skill, "SKILL.md")), file=sys.stderr)
