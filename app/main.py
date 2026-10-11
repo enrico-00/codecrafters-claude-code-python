@@ -5,7 +5,7 @@ import json
 import subprocess
 
 # import markdown
-import yaml
+# import yaml
 import frontmatter
 
 from openai import OpenAI
