@@ -25,7 +25,7 @@ def main():
     skills_description = []
 
     for skill in skills_name:
-        f = open(skill, "r")
+        f = open(os.path.join(SKILLS_PATH, skill, "SKILL.md"), "r")
         print(f.read(), file=sys.stderr)
 
     print(skills_name, file=sys.stderr)
