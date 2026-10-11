@@ -3,8 +3,13 @@ import os
 import sys
 import json
 import subprocess
+import markdown
+import yaml
+import frontmatter
 
 from openai import OpenAI
+
+SKILLS_PATH = ".claude/skills/"
 
 API_KEY = os.getenv("OPENROUTER_API_KEY")
 BASE_URL = os.getenv("OPENROUTER_BASE_URL", default="https://openrouter.ai/api/v1")
@@ -15,7 +20,13 @@ def main():
     p.add_argument("-p", required=True)
     args = p.parse_args()
 
-    print("Hi", file=sys.stderr)
+    skills_name = os.listdir(SKILLS_PATH)
+    skills_description = []
+
+    # for skill in skills_name:
+
+
+    print(skills_name file=sys.stderr)
     print(args.p, file=sys.stderr)
 
     if not API_KEY:
@@ -26,7 +37,7 @@ def main():
     messages = [
         {
             "role": "system",
-            "content": "You have access to the following skills:\n\n- apple: ...",
+            "content": args.s,
         },
         {"role": "user", "content": args.p},
     ]
