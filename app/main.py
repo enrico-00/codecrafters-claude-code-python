@@ -22,8 +22,7 @@ def read_skill(path: str):
     with open(path, "r") as file:
         for line in file:
             line_strip = line.strip()
-            # print("")
-            # print(line, file=sys.stderr)
+            print(line_strip, file=sys.stderr)
             if line_strip.startswith("") or line_strip.startswith("---"):
                 # print("a")
                 continue
@@ -47,7 +46,7 @@ def main():
     skills_name = os.listdir(SKILLS_PATH)
     skills_description = []
 
-    for skill in skills_name:
+    for skill in skills_name[:0]:
         print("HIII", file=sys.stderr)
         # f = open(os.path.join(SKILLS_PATH, skill, "SKILL.md"), "r")
         # print(f.read(), file=sys.stderr)
