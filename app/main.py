@@ -45,7 +45,7 @@ def main():
         print("HIII")
         # f = open(os.path.join(SKILLS_PATH, skill, "SKILL.md"), "r")
         # print(f.read(), file=sys.stderr)
-        print(os.path.join(SKILLS_PATH, skill, "SKILL.md"), file=sys.stderr)
+        print(read_skill(os.path.join(SKILLS_PATH, skill, "SKILL.md")), file=sys.stderr)
 
     # print(skills_name, file=sys.stderr)
     # print(args.p, file=sys.stderr)
