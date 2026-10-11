@@ -18,7 +18,6 @@ BASE_URL = os.getenv("OPENROUTER_BASE_URL", default="https://openrouter.ai/api/v
 
 def read_skill(path: str):
     f = open(path, "r")
-
     body = ""
 
     for line in f:
@@ -43,12 +42,13 @@ def main():
     skills_description = []
 
     for skill in skills_name:
-        f = open(os.path.join(SKILLS_PATH, skill, "SKILL.md"), "r")
-        print(f.read(), file=sys.stderr)
+        print("HIII")
+        # f = open(os.path.join(SKILLS_PATH, skill, "SKILL.md"), "r")
+        # print(f.read(), file=sys.stderr)
         print(os.path.join(SKILLS_PATH, skill, "SKILL.md"), file=sys.stderr)
 
-    print(skills_name, file=sys.stderr)
-    print(args.p, file=sys.stderr)
+    # print(skills_name, file=sys.stderr)
+    # print(args.p, file=sys.stderr)
 
     if not API_KEY:
         raise RuntimeError("OPENROUTER_API_KEY is not set")
