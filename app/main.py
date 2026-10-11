@@ -24,7 +24,9 @@ def main():
     skills_name = os.listdir(SKILLS_PATH)
     skills_description = []
 
-    # for skill in skills_name:
+    for skill in skills_name:
+        f = open(skill, "r")
+        print(f.read(), file=sys.stderr)
 
     print(skills_name, file=sys.stderr)
     print(args.p, file=sys.stderr)
@@ -37,7 +39,7 @@ def main():
     messages = [
         {
             "role": "system",
-            "content": args.s,
+            "content": "Hi",
         },
         {"role": "user", "content": args.p},
     ]
