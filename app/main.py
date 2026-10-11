@@ -15,6 +15,7 @@ SKILLS_PATH = ".claude/skills/"
 API_KEY = os.getenv("OPENROUTER_API_KEY")
 BASE_URL = os.getenv("OPENROUTER_BASE_URL", default="https://openrouter.ai/api/v1")
 
+
 def read_skill(path: str):
     f = open(path, "r")
 
@@ -27,7 +28,7 @@ def read_skill(path: str):
             name = line.split(": ")[-1]
         elif line.startswith("description:"):
             description = line.split(": ")[-1]
-        else
+        else:
             body = body + line
 
     return name, description, body
