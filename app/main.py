@@ -26,10 +26,10 @@ def read_skill(path: str):
             if line_strip.startswith("") or line_strip.startswith("---"):
                 print("a")
                 continue
-            elif line_strip.startswith("name:"):
+            elif line_strip.startswith("name: "):
                 print("b")
                 name = line.split(": ")[-1]
-            elif line_strip.startswith("description:"):
+            elif line_strip.startswith("description: "):
                 print("c")
                 description = line.split(": ")[-1]
             else:
