@@ -17,18 +17,18 @@ BASE_URL = os.getenv("OPENROUTER_BASE_URL", default="https://openrouter.ai/api/v
 
 
 def read_skill(path: str):
-    f = open(path, "r")
     name, description, body = "", "", ""
 
-    for line in f:
-        if line.startswith("") or line.startswith("---"):
-            continue
-        elif line.startswith("name:"):
-            name = line.split(": ")[-1]
-        elif line.startswith("description:"):
-            description = line.split(": ")[-1]
-        else:
-            body = body + line
+    with open(path, "r") as file:
+        for line in file:
+            if line.startswith("") or line.startswith("---"):
+                continue
+            elif line.startswith("name:"):
+                name = line.split(": ")[-1]
+            elif line.startswith("description:"):
+                description = line.split(": ")[-1]
+            else:
+                body = body + line
 
     return name, description, body
 
