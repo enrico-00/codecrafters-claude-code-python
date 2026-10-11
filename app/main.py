@@ -18,7 +18,7 @@ BASE_URL = os.getenv("OPENROUTER_BASE_URL", default="https://openrouter.ai/api/v
 
 def read_skill(path: str):
     f = open(path, "r")
-    body = ""
+    name, description, body = "", "", ""
 
     for line in f:
         if line.startswith("") or line.startswith("---"):
