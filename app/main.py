@@ -46,7 +46,7 @@ def main():
     skills_name = os.listdir(SKILLS_PATH)
     skills_description = []
 
-    for skill in skills_name[:0]:
+    for skill in skills_name[:1]:
         print("HIII", file=sys.stderr)
         # f = open(os.path.join(SKILLS_PATH, skill, "SKILL.md"), "r")
         # print(f.read(), file=sys.stderr)
