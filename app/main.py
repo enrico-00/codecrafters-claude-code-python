@@ -23,10 +23,13 @@ def read_skill(path: str):
         for line in file:
             print(line, file=sys.stderr)
             if line.startswith("") or line.startswith("---"):
+                print("a")
                 continue
-            elif line.startswith("name:"):
+            elif line.startswith("name: "):
+                print("b")
                 name = line.split(": ")[-1]
             elif line.startswith("description:"):
+                print("c")
                 description = line.split(": ")[-1]
             else:
                 body = body + line
