@@ -16,7 +16,7 @@ def main():
     args = p.parse_args()
 
     print("Hi", file=sys.stderr)
-    print(args, file=sys.stderr)
+    print(args.p, file=sys.stderr)
 
     if not API_KEY:
         raise RuntimeError("OPENROUTER_API_KEY is not set")
