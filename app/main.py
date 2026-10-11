@@ -25,8 +25,7 @@ def main():
 
     # for skill in skills_name:
 
-
-    print(skills_name file=sys.stderr)
+    print(skills_name, file=sys.stderr)
     print(args.p, file=sys.stderr)
 
     if not API_KEY:
