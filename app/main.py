@@ -47,7 +47,7 @@ def main():
 
     skills_content = ""
 
-    if os.path.isdir(SKILLS_PATH)
+    if os.path.isdir(SKILLS_PATH):
         skills_name = os.listdir(SKILLS_PATH)
         print(skills_name, file=sys.stderr)
         skills_description = []
