@@ -24,14 +24,16 @@ def read_skill(path: str):
             line_strip = line.strip()
             print(line_strip, file=sys.stderr)
             if line_strip.startswith("") or line_strip.startswith("---"):
-                print("a")
+                print("a", file=sys.stderr)
                 continue
             elif line_strip.startswith("name: "):
-                print("b")
+                print("b", file=sys.stderr)
                 name = line.split(": ")[-1]
+                print(name, file=sys.stderr)
             elif line_strip.startswith("description: "):
-                print("c")
+                print("c", file=sys.stderr)
                 description = line.split(": ")[-1]
+                print(description, file=sys.stderr)
             else:
                 body = body + line
 
