@@ -59,7 +59,7 @@ def main():
         print(read_skill(os.path.join(SKILLS_PATH, skill, "SKILL.md")), file=sys.stderr)
         description = read_skill(os.path.join(SKILLS_PATH, skill, "SKILL.md"))[1]
         skills_description.append(description)
-        skills_content = skills_content + "-" + skills_name + ": " + description
+        skills_content = skills_content + "-" + skill + ": " + description
 
     print(skills_content, file=sys.stderr)
     # print(args.p, file=sys.stderr)
