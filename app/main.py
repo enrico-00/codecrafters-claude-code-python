@@ -50,7 +50,7 @@ def main():
 
     skills_content = "You have access to the following skills:\n"
 
-    for skill in skills_name[:1]:
+    for skill in skills_name:
         skills_content = skills_content + "\n"
         # print("HIII", file=sys.stderr)
         # print(skill, file=sys.stderr)
