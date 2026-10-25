@@ -48,6 +48,7 @@ def main():
 
     for skill in skills_name[:1]:
         print("HIII", file=sys.stderr)
+        print(skill, file=sys.stderr)
         # f = open(os.path.join(SKILLS_PATH, skill, "SKILL.md"), "r")
         # print(f.read(), file=sys.stderr)
         print(read_skill(os.path.join(SKILLS_PATH, skill, "SKILL.md")), file=sys.stderr)
