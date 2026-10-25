@@ -28,11 +28,11 @@ def read_skill(path: str):
                 continue
             elif line_strip.startswith("name: "):
                 print("b", file=sys.stderr)
-                name = line.split(": ")[0]
+                name = line_strip.split(": ")[-1]
                 print(name, file=sys.stderr)
             elif line_strip.startswith("description: "):
                 print("c", file=sys.stderr)
-                description = line.split(": ")[0]
+                description = line_strip.split(": ")[-1]
                 print(description, file=sys.stderr)
             else:
                 body = body + line
