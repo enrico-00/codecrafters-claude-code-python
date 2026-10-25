@@ -46,6 +46,7 @@ def main():
     args = p.parse_args()
 
     skills_name = os.listdir(SKILLS_PATH)
+    print(skills_name, file="sys.stderr")
     skills_description = []
 
     skills_content = "You have access to the following skills:\n"
