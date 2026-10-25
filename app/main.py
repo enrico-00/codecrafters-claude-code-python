@@ -22,18 +22,18 @@ def read_skill(path: str):
     with open(path, "r") as file:
         for line in file:
             line_strip = line.strip()
-            print(line_strip, file=sys.stderr)
+            # print(line_strip, file=sys.stderr)
             if not line_strip or line_strip.startswith("---"):
-                print("a", file=sys.stderr)
+                # print("a", file=sys.stderr)
                 continue
             elif line_strip.startswith("name: "):
-                print("b", file=sys.stderr)
+                # print("b", file=sys.stderr)
                 name = line_strip.split(": ")[-1]
-                print(name, file=sys.stderr)
+                # print(name, file=sys.stderr)
             elif line_strip.startswith("description: "):
-                print("c", file=sys.stderr)
+                # print("c", file=sys.stderr)
                 description = line_strip.split(": ")[-1]
-                print(description, file=sys.stderr)
+                # print(description, file=sys.stderr)
             else:
                 body = body + line
 
@@ -52,11 +52,11 @@ def main():
 
     for skill in skills_name[:1]:
         skills_content = skills_content + "\n"
-        print("HIII", file=sys.stderr)
-        print(skill, file=sys.stderr)
+        # print("HIII", file=sys.stderr)
+        # print(skill, file=sys.stderr)
         # f = open(os.path.join(SKILLS_PATH, skill, "SKILL.md"), "r")
         # print(f.read(), file=sys.stderr)
-        print(read_skill(os.path.join(SKILLS_PATH, skill, "SKILL.md")), file=sys.stderr)
+        # print(read_skill(os.path.join(SKILLS_PATH, skill, "SKILL.md")), file=sys.stderr)
         description = read_skill(os.path.join(SKILLS_PATH, skill, "SKILL.md"))[1]
         skills_description.append(description)
         skills_content = skills_content + "-" + skill + ": " + description
@@ -72,7 +72,7 @@ def main():
     messages = [
         {
             "role": "system",
-            "content": "Hi",
+            "content": skills_content,
         },
         {"role": "user", "content": args.p},
     ]
