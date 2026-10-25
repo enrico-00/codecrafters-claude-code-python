@@ -23,10 +23,7 @@ def read_skill(path: str):
         for line in file:
             line_strip = line.strip()
             print(line_strip, file=sys.stderr)
-            if line_strip.startswith("") or line_strip.startswith("---"):
-                print("a", file=sys.stderr)
-                continue
-            elif line_strip.startswith("name: "):
+            if line_strip.startswith("name: "):
                 print("b", file=sys.stderr)
                 name = line_strip.split(": ")[-1]
                 print(name, file=sys.stderr)
@@ -34,6 +31,9 @@ def read_skill(path: str):
                 print("c", file=sys.stderr)
                 description = line_strip.split(": ")[-1]
                 print(description, file=sys.stderr)
+            elif line_strip.startswith("") or line_strip.startswith("---"):
+                print("a", file=sys.stderr)
+                continue
             else:
                 body = body + line
 
