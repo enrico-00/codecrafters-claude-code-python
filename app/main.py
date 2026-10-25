@@ -45,22 +45,25 @@ def main():
     p.add_argument("-p", required=True)
     args = p.parse_args()
 
-    skills_name = os.listdir(SKILLS_PATH)
-    print(skills_name, file=sys.stderr)
-    skills_description = []
+    skills_content = ""
 
-    skills_content = "You have access to the following skills:\n"
+    if os.path.isdir(SKILLS_PATH)
+        skills_name = os.listdir(SKILLS_PATH)
+        print(skills_name, file=sys.stderr)
+        skills_description = []
 
-    for skill in skills_name:
-        skills_content = skills_content + "\n"
-        # print("HIII", file=sys.stderr)
-        # print(skill, file=sys.stderr)
-        # f = open(os.path.join(SKILLS_PATH, skill, "SKILL.md"), "r")
-        # print(f.read(), file=sys.stderr)
-        # print(read_skill(os.path.join(SKILLS_PATH, skill, "SKILL.md")), file=sys.stderr)
-        description = read_skill(os.path.join(SKILLS_PATH, skill, "SKILL.md"))[1]
-        skills_description.append(description)
-        skills_content = skills_content + "-" + skill + ": " + description
+        skills_content = "You have access to the following skills:\n"
+
+        for skill in skills_name:
+            skills_content = skills_content + "\n"
+            # print("HIII", file=sys.stderr)
+            # print(skill, file=sys.stderr)
+            # f = open(os.path.join(SKILLS_PATH, skill, "SKILL.md"), "r")
+            # print(f.read(), file=sys.stderr)
+            # print(read_skill(os.path.join(SKILLS_PATH, skill, "SKILL.md")), file=sys.stderr)
+            description = read_skill(os.path.join(SKILLS_PATH, skill, "SKILL.md"))[1]
+            skills_description.append(description)
+            skills_content = skills_content + "-" + skill + ": " + description
 
     print(skills_content, file=sys.stderr)
     # print(args.p, file=sys.stderr)
