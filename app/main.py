@@ -68,6 +68,10 @@ def main():
     print(skills_content, file=sys.stderr)
     print(args.p, file=sys.stderr)
 
+    if args.p.startswith("/"):
+        skill = args.p[1:]
+        args.p = read_skill(os.path.join(SKILLS_PATH, skill, "SKILL.md"))[2]
+
     if not API_KEY:
         raise RuntimeError("OPENROUTER_API_KEY is not set")
 
