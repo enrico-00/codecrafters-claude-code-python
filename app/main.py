@@ -66,7 +66,7 @@ def main():
             skills_content = skills_content + "-" + skill + ": " + description
 
     print(skills_content, file=sys.stderr)
-    # print(args.p, file=sys.stderr)
+    print(args.p, file=sys.stderr)
 
     if not API_KEY:
         raise RuntimeError("OPENROUTER_API_KEY is not set")
