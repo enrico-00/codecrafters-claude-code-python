@@ -44,6 +44,7 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("-p", required=True)
     args = p.parse_args()
+    print(args, file=sys.stderr)
 
     skills_content = ""
 
